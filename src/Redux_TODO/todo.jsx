@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { submit,change,remove } from "./actions"
+import { submit,change,remove,edt } from "./actions"
 
 function Todo(){
     let dispatch=useDispatch()
@@ -23,6 +23,10 @@ function Todo(){
         dispatch(remove(val,ind))
     }
 
+    function edit(val,ind){
+        dispatch(edt(val,ind))
+    }
+
     let res=select.arr.map((val,ind)=>{
         return (
             <ul key={ind}>
@@ -30,7 +34,9 @@ function Todo(){
                     <button onClick={()=>{
                         del(val,ind)
                     }}>Delete</button>
-                    
+                    <button onClick={()=>{
+                        edit(val,ind)
+                    }}>Edit</button>
                 </li>
             </ul>
         )
