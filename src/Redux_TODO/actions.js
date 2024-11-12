@@ -22,4 +22,14 @@ function remove(v,i){
     })
 }
 
-export {submit,change,remove}
+
+function edt(v,i){
+    return({
+        type:"edit",
+        payloadValue:v,
+        payloadIndex:i
+
+    })
+}
+
+export {submit,change,remove,edt}
